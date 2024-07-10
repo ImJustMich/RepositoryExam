@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Galeria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+            <div class="container">
+                <a href="inicio.html" class="navbar-brand"><span class="text-success">Palafitos de Chile</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+                        <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
+                        <a class="nav-link" href="{% url 'cuidadosRiesgos' %}">Cuidados y Riesgos</a>
+                        <a class="nav-link" href="{% url 'donaciones' %}">Donaciones</a>
+                        <a class="nav-link" href="{% url 'viajar' %}">Ven a Conocerlos</a>
+                    </div>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="¿Que buscas?" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" class="col-xs-12 col-md-12 col-lg-12">
+                <img src="{% static 'images/palafitos4.jpg' %}" class="img-fluid rounded mx-auto d-block"  alt="imagen4">
+            </div>
+            <div class="carousel-item" class="col-xs-12 col-md-12 col-lg-12">
+                <img src="{% static 'images/palafitos2.jpg' %}" class="img-fluid rounded mx-auto d-block" height="800px" width="1200px" alt="imagen2">
+            </div>
+            <div class="carousel-item" class="col-xs-12 col-md-12 col-lg-12">
+                <img src="{% static 'images/palafitos3.jpg' %}" class="img-fluid rounded mx-auto d-block" height="800px" width="1139px" alt="imagen3">
+            </div>
+            <div class="carousel-item" class="col-xs-12 col-md-12 col-lg-12">
+                <img src="{% static 'images/palafitos1.jpg' %}" class="img-fluid rounded mx-auto d-block" alt="imagen1">
+            </div>      
+        </div>
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    
+
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+          <div class="card" class=" rounded mx-auto d-block">
+              <img src="{% static 'images/Card1.jpg' %}" class="card-img-top" alt="carta1">
+              <div class="card-body">
+                  <h5 class="card-title">Castro</h5>
+                  <p class="card-text">Castro es una ciudad de la isla de Chiloé, en la región de Los Lagos de Chile. Su costa está bordeada de palafitos de madera coloridos.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <img src="{% static 'images/Castro_07_-Palafitos-y-embarcación.jpg' %}" class="card-img-top" alt="carta2">
+              <div class="card-body">
+                  <h5 class="card-title">Palafitos de Castro y embarcación. (Fotografía de Humberto Soto)</h5>
+                  <p class="card-text">Se comenzó a construir el Mercado y, junto al nuevo molo (malecón) de Castro, la Plazoleta Entre tierra y mar: los palafitos y el puerto de Castro (Isla de Chiloé) en el siglo XX</p>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <img src="{% static 'images/Castro_08_-Palafito-hostel.jpg' %}" class="card-img-top" alt="Carta3">
+              <div class="card-body">
+                  <h5 class="card-title">Palafito hostel, barrio Pedro Montt en Castro. (Fotografía Jonás Retamal Tobar)</h5>
+                  <p class="card-text">El puerto de Castro se ha transformado más que nada en un punto turístico, donde arriban grandes catamaranes en el verano y desde donde zarpan muchos de los recorridos turísticos de la isla.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+          <div class="card">
+              <img src="{% static 'images/palafitos5.jpg' %}" class="card-img-top" alt="carta4">
+              <div class="card-body">
+                  <h5 class="card-title">Palafitos de Chiloé: Belleza Costera</h5>
+                  <p class="card-text">La belleza única de los palafitos de Chiloé, una fascinante expresión arquitectónica que bordea la costa de esta mágica isla en Chile.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="card">
+            <img src="{% static 'images/Palafitos6.png' %}" class="card-img-top" alt="carta5">
+            <div class="card-body">
+                <h5 class="card-title">Hubicación en el mapa</h5>
+                <p class="card-text">---------------------------------</p>
+            </div>
+        </div>
+    </div>
+   <div class="col">
+    <div class="card">
+        <img src="{% static 'images/palafitos7.jpg' %}" class="card-img-top" alt="carta6">
+        <div class="card-body">
+            <h5 class="card-title">La zona del barrio de Gamboa</h5>
+            <p class="card-text">Es recomendable visitar los palafitos de Castro tanto con marea baja como con marea alta, ya que el paisaje y la fotografía cambian mucho.</p>
+        </div>
+    </div>
+</div>
+  </div>
+  
+
+    <br>
+
+    <span class="placeholder col-12 placeholder-lg bg-white"></span>
+      <div class="container-fluid">
+        <div class="row p-5 bg-success text-white">
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <img src="{% static 'images/imagen4.png' %}" class="img-fluid rounded mx-auto d-block" height="50%" width="50%">
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="p font-monospace fs-5">SOBRE NOSOTROS</div>
+          <div class="text-sm-start font-size-sm lh-sm"> Miembros del Equipo: Jerson Reyes, Michelle Gaete, Jorge Pizzarro</div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="p font-monospace fs-5">REDES SOCIALES</div>
+          <div class="p font-monospace fs-6 text-light">Instagram</div>
+          <div class="p font-monospace fs-6 text-light">Facebook</div>
+          <div class="p font-monospace fs-6 text-light">Twitter</div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="p font-monospace fs-5">FUENTES</div>
+          <div class="p font-monospace fs-6 text-light">Imagen 1: www.colegiodearquitectos.com</div>
+        </div>
+      </div>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+
+</html>
+

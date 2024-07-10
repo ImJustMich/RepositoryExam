@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Cuidados y Riesgos de los Palafitos de Chiloé</title>
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #a9e9a4;
+        }
+        .container-main {
+            padding-top: 80px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-img-bottom {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+            <div class="container">
+                <a href="inicio.html" class="navbar-brand"><span class="text-success">Palafitos de Chile</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+                        <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
+                        <a class="nav-link" href="{% url 'cuidadosRiesgos' %}">Cuidados y Riesgos</a>
+                        <a class="nav-link" href="{% url 'donaciones' %}">Donaciones</a>
+                        <a class="nav-link" href="{% url 'viajar' %}">Ven a Conocerlos</a>
+                    </div>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="¿Que buscas?" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Cuidados y Riesgos de los Palafitos de Chiloé</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Cuidados Esenciales</h2>
+                <p class="card-text">Los palafitos de Chiloé son estructuras históricas y únicas, por lo que es importante:</p>
+                <ul>
+                    <li>Mantener la madera tratada y protegida contra la humedad.</li>
+                    <li>Realizar inspecciones periódicas para detectar signos de deterioro.</li>
+                    <li>Respetar las normativas locales de conservación y mantenimiento.</li>
+                </ul>
+            </div>
+            <img src="{% static 'images/cuidados1.jpg' %}" class="card-img-bottom" alt="Cuidados de los Palafitos de Chiloé">
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Riesgos a Considerar</h2>
+                <p class="card-text">Visitar los palafitos conlleva ciertos riesgos que se deben tener en cuenta:</p>
+                <ul>
+                    <li>Riesgo de resbalones en superficies húmedas.</li>
+                    <li>Posibilidad de desprendimiento de materiales por la acción del agua y el clima.</li>
+                    <li>Accesibilidad limitada para personas con movilidad reducida.</li>
+                </ul>
+            </div>
+            <img src="{% static 'images/cuidados2.jpg' %}" class="card-img-bottom" alt="Riesgos de los Palafitos de Chiloé">
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Recomendaciones Generales</h2>
+                <p class="card-text">Para disfrutar de los palafitos de manera segura y responsable:</p>
+                <ul>
+                    <li>Utilizar calzado adecuado y antideslizante.</li>
+                    <li>Respetar las señales y advertencias de seguridad.</li>
+                    <li>Evitar dañar las estructuras históricas durante la visita.</li>
+                </ul>
+            </div>
+            <img src="{% static 'images/cuidados3.jpg' %}" class="card-img-bottom" alt="Recomendaciones para visitar los Palafitos de Chiloé">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+

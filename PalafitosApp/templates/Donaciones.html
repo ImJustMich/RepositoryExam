@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Donaciones para los Palafitos de Chiloé</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-image: url('/static/images/fondoPalafitos.jpg');
+            background-size: cover; 
+            background-position: center; 
+            position: relative; 
+            padding-top: 70px;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+        .content {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .donation-form {
+            margin-top: 20px;
+        }
+        .donation-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .donation-form input,
+        .donation-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .donation-form button {
+            background-color: #ffcc00;
+            border: none;
+            cursor: pointer;
+        }
+        .donation-form button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
+        <div class="container">
+            <a href="inicio.html" class="navbar-brand"><span class="text-success">Palafitos de Chile</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+                    <a class="nav-link" href="{% url 'galeria' %}">Galeria</a>
+                    <a class="nav-link" href="{% url 'cuidadosRiesgos' %}">Cuidados y Riesgos</a>
+                    <a class="nav-link" href="{% url 'donaciones' %}">Donaciones</a>
+                    <a class="nav-link" href="{% url 'viajar' %}">Ven a Conocerlos</a>
+                </div>
+            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="¿Que buscas?" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+    <div class="overlay"></div>
+    <div class="container-content">
+        <header>
+            <h1>Ayuda a los Palafitos de Chiloé</h1>
+        </header>
+        <div class="content">
+            <p>Un incendio destruyó por completo este sábado seis palafitos en el sector Pedro Montt, de la comuna de Castro, en la isla grande de Chiloé.
+            El fuego comenzó cerca de las 13:00 horas y también afectó a tres vehículos que fueron quemados. En el trabajo de combate de las llamas, dos voluntarios de Bomberos resultaron lesionados.Los palafitos de Chiloé son una parte esencial de nuestro patrimonio cultural. Con tu ayuda, podemos preservar y restaurar estas hermosas construcciones.</p>
+            <img src="{% static 'images/incendioPalafitos.jpg' %}" alt="Palafitos de Chiloé">
+        </div>
+        <div class="donation-form">
+            <div class="form-group">
+                <form action="/RegistrarDonacion/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        <label for="txtNombre">Nombre:</label>
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                        maxlength="50" required>
+                    </div>
+                    <div class="form-group">   
+                        <label for="txtApellido">Apellidos:</label>
+                        <input type="text" id="txtApellido" name="txtApellido" class="form-control" placeholder="Apellido"
+                        maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCorreo">Correo electrónico:</label>
+                        <input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Correo"
+                        maxlength="50" required>
+                    </div> 
+                    <div class="form-group">  
+                        <label for="numMonto">Monto de la donación (CLP):</label>
+                        <input type="number" id="numMonto" name="numMonto" class="form-control" placeholder="Monto" min="1" max="999999" required>
+                    </div>      
+                    <div class="form-group button-container">
+                        <button type="submit" class="btn btn-success btn text-white" id="btnDonar">Donar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+y0BnaPll/OKbs2H6Q1YO2sqU/J7E7RsWEo8bg0U5UsO/MII06UcozHCVh8MoN" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('btnDonar').addEventListener('click', function(event) {
+            event.preventDefault();
+            const monto = document.getElementById('numMonto').value;
+            alert(`Muchas gracias por donar $${monto} CLP para la reconstrucción de los palafitos`);
+        });
+    </script>
+</body>
+</html>
+
+
